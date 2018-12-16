@@ -61,6 +61,18 @@ $decoded = JWT::decode($jwt, $key, array('HS256'));
 ?>
 ```
 Example with RS256 (openssl)
+
+~~~shell
+# get the private and public key with openssl
+openssl genrsa -out private.key 2048
+openssl rsa -in private.key -pubout > pubkey.key
+
+# get private and pub key with ssh-keygen
+ssh-keygen -t rsa -b 2048 -C "yourname@gmail.com"
+openssl rsa -in id_rsa -pubout > id_rsa_pub.key
+
+~~~
+
 ----------------------------
 ```php
 <?php
